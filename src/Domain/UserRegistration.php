@@ -8,6 +8,11 @@ class UserRegistration
 
 	public function signUp($username)
 	{
+		if ( $this->find( $username ) )
+		{
+			throw new \InvalidArgumentException( "User $username already exists" );
+		}
+
 		$this->users[] = $username;
 	}
 

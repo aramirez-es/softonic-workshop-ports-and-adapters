@@ -4,7 +4,12 @@ namespace Domain;
 
 class UserRegistration
 {
-	private $users = array();
+	private $user_repository;
+
+	public function __construct()
+	{
+		$this->user_repository = new InMemoryUserRespository();
+	}
 
 	public function signUp($username)
 	{
@@ -13,12 +18,12 @@ class UserRegistration
 			throw new \InvalidArgumentException( "User $username already exists" );
 		}
 
-		$this->users[$username] = new User($username);
+		$this->user_repository->add( new User($username) );
 	}
 
 	public function find($username)
 	{
-		return isset($this->users[$username]) ? $this->users[$username] : null;
+		return $this->user_repository->exists($username);
 	}
 
 	public function follow( $username, $username_to_follow )

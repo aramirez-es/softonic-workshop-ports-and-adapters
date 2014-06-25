@@ -3,15 +3,15 @@
 namespace Domain;
 
 use Domain\Entity\User;
-use Infrastructure\InMemoryUserRespository;
+use Domain\Repository\User as UserRepository;
 
 class UserRegistration
 {
 	private $user_repository;
 
-	public function __construct()
+	public function __construct(UserRepository $user_repository)
 	{
-		$this->user_repository = new InMemoryUserRespository();
+		$this->user_repository = $user_repository;
 	}
 
 	public function signUp($username)

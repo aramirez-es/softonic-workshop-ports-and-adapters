@@ -11,6 +11,12 @@ class UserRegistrationTest extends \PHPUnit_Framework_TestCase
 		$user_registration = new UserRegistration();
 		$user_registration->signUp($username);
 
-		$this->assertThat($username, $this->equalTo($user_registration->find($username)));
+		$this->assertThat($user_registration->find($username), $this->equalTo($username));
+	}
+
+	public function testItShouldNotFindAUserIfItIsNotRegistered()
+	{
+		$user_registration = new UserRegistration();
+		$this->assertThat($user_registration->find("not-exist"), $this->isEmpty());
 	}
 }

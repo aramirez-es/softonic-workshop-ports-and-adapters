@@ -5,7 +5,6 @@ namespace Domain;
 class UserRegistration
 {
 	private $users = array();
-	private $followings = array();
 
 	public function signUp($username)
 	{
@@ -14,21 +13,21 @@ class UserRegistration
 			throw new \InvalidArgumentException( "User $username already exists" );
 		}
 
-		$this->users[] = $username;
+		$this->users[$username] = new User($username);
 	}
 
 	public function find($username)
 	{
-		return in_array($username, $this->users, true) ? $username : null;
+		return isset($this->users[$username]) ? $this->users[$username] : null;
 	}
 
 	public function follow( $username, $username_to_follow )
 	{
-		$this->followings[$username][] = $username_to_follow;
+		$this->find($username)->follow($this->find($username_to_follow));
 	}
 
 	public function getFollowings( $username )
 	{
-		return $this->followings[$username];
+		return $this->find($username)->getFollowings();
 	}
 }

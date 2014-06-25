@@ -1,0 +1,22 @@
+{
+	"name": "aramirez-es/softonic-workshop-ports-and-adapters",
+	"authors": [
+		{
+			"name": "Alberto Ramirez",
+			"email": "alberto@aramirez.es"
+		},
+		{
+			"name": "Jose Armesto",
+			"email": "jose@armesto.net"
+		}
+	],
+	"require": {
+	},
+	"require-dev": {
+		"phpunit/phpunit": "3.7.9"
+	},
+	"config": {
+		"bin-dir": "bin"
+	},
+	"autoload": {"psr-0": {"": "src"}}
+}

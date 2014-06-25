@@ -1,0 +1,7 @@
+.idea
+README.md
+atlassian-ide-plugin.xml
+bin
+composer.phar
+vendor
+

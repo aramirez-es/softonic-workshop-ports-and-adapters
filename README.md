@@ -8,3 +8,6 @@ KATA ROAR
 ### SECOND ITERATION
 * An user can follows other users using its username.
 * Anyone should be able to query who other user follows using its nickname.
+
+### THIRD ITERATION
+* Both users registration and user list followed must be persistent.

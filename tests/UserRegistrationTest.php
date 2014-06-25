@@ -19,4 +19,12 @@ class UserRegistrationTest extends \PHPUnit_Framework_TestCase
 		$user_registration = new UserRegistration();
 		$this->assertThat($user_registration->find("not-exist"), $this->isEmpty());
 	}
+
+	public function testThatRegisteringUserThatAlreadyExistsThrowsException()
+	{
+		$user_registration = new UserRegistration();
+		$user_registration->signUp('aramirez_');
+		$this->setExpectedException( 'InvalidArgumentException' );
+		$user_registration->signUp('aramirez_');
+	}
 }

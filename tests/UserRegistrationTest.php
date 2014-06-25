@@ -27,4 +27,11 @@ class UserRegistrationTest extends \PHPUnit_Framework_TestCase
 		$this->setExpectedException( 'InvalidArgumentException' );
 		$user_registration->signUp('aramirez_');
 	}
+
+	public function testThatUserCanFollowOtherUsers()
+	{
+		$user_registration = new UserRegistration();
+		$user_registration->follow( 'aramirez_', 'fiunchinho' );
+		$this->assertThat( $user_registration->getFollowings( 'aramirez_' ), $this->contains( 'fiunchinho' ) );
+	}
 }

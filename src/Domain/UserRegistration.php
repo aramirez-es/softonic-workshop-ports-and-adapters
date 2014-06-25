@@ -29,6 +29,11 @@ class UserRegistration
 		return $this->user_repository->exists($username);
 	}
 
+	public function listUsers()
+	{
+		return $this->user_repository->findAll();
+	}
+
 	public function follow( $username, $username_to_follow )
 	{
 		$this->find($username)->follow($this->find($username_to_follow));

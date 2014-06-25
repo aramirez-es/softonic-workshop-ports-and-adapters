@@ -32,4 +32,9 @@ class FileUserRepository implements UserRespository
 		$users = unserialize(@file_get_contents($this->database));
 		return isset($users[$username]) ? $users[$username] : null;
 	}
+
+	public function findAll()
+	{
+		return unserialize(@file_get_contents($this->database));
+	}
 } 

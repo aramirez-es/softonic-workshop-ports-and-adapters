@@ -2,6 +2,9 @@
 
 namespace Domain;
 
+use Domain\Entity\User;
+use Infrastructure\InMemoryUserRespository;
+
 class UserRegistration
 {
 	private $user_repository;
